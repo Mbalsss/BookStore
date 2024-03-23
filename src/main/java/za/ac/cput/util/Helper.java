@@ -21,6 +21,13 @@ public class Helper {
         return false;
     }
 
+    public static boolean isNegative(double c){
+        if(c < 0)
+            return true;
+        return false;
+    }
+
+
     public static String generateID(){
         return UUID.randomUUID().toString();
     }
