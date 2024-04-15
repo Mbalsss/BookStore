@@ -12,9 +12,11 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.*;
 
 /*
-
-Author: Chadwin Kyle Fritz 218068360 15/03/2024
-
+PaymentRepository.java
+Payment repository test class
+Author: Chadwin Kyle Fritz 218068360
+https://github.com/ChadwinFritz
+Date: 15/03/2024
  */
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -22,7 +24,8 @@ class PaymentRepositoryTest {
 
     private static IPaymentRepository repository = PaymentRepository.getRepository();
 
-    private final Payment paymentA = PaymentFactory.createPayment("987654", 500, new Date(), "Credit Card");
+    private Payment paymentA = PaymentFactory.createPayment("987654", 500, new Date()
+            , "Credit Card");
 
     @Test
     @Order(4)
@@ -49,7 +52,7 @@ class PaymentRepositoryTest {
 
     @Test
     @Order(3)
-    void copy() {
+    void update() {
         Payment newPayment = new Payment.Builder()
                 .copy(paymentA)
                 .setAmount(750)

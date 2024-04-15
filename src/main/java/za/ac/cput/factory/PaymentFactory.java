@@ -6,15 +6,17 @@ import za.ac.cput.util.Helper;
 import java.util.Date;
 
 /*
-
-Author: Chadwin Kyle Fritz 218068360 15/03/2024
-
+PaymentFactory.java
+Payment factory class
+Author: Chadwin Kyle Fritz 218068360
+https://github.com/ChadwinFritz
+Date: 15/03/2024
  */
 
 public class PaymentFactory {
 
-    public static Payment createPayment(String paymentID, int amount, Date paymentDate, String paymentMethod) {
-        if (Helper.isNullOrEmpty(paymentID) || Helper.isNegative(amount) || paymentDate == null || Helper.isNullOrEmpty(paymentMethod)) {
+    public static Payment createPayment(String paymentID, double amount, Date paymentDate, String paymentMethod) {
+        if (Helper.isNullOrEmpty(paymentID) || Helper.isNegative(amount) || Helper.isNull(paymentDate) || Helper.isNullOrEmpty(paymentMethod)) {
             return null;
         }
 
@@ -26,8 +28,8 @@ public class PaymentFactory {
                 .build();
     }
 
-    public static Payment createPayment(int amount, Date paymentDate, String paymentMethod) {
-        if (Helper.isNegative(amount) || paymentDate == null || Helper.isNullOrEmpty(paymentMethod)) {
+    public static Payment createPayment(double amount, Date paymentDate, String paymentMethod) {
+        if (Helper.isNegative(amount) || Helper.isNull(paymentDate) || Helper.isNullOrEmpty(paymentMethod)) {
             return null;
         }
 

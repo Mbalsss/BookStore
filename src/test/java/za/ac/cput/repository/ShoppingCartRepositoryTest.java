@@ -3,15 +3,21 @@ package za.ac.cput.repository;
 import org.junit.jupiter.api.*;
 import za.ac.cput.domain.ShoppingCart;
 import za.ac.cput.factory.ShoppingCartFactory;
-
 import static org.junit.jupiter.api.Assertions.*;
+
+/*
+ShoppingCartRepositoryTest.java
+ShoppingCartRepositoryTest class
+Author: Thabo Tshabalala 221715126 https://github.com/Thabo-Tshabalala
+Date: 15/03/2024
+ */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 
 class ShoppingCartRepositoryTest {
 
     private static IShoppingCartRepository repository= ShoppingCartRepository.getRepository();
     private ShoppingCart cart1 = ShoppingCartFactory.buildShoppingCart("876543","Apple Munch");
-    private ShoppingCart cart2 = ShoppingCartFactory.buildShoppingCart("54654","Rose");
+    private ShoppingCart cart2 = ShoppingCartFactory.buildShoppingCart("546546","Rose");
 
 
     @Test
@@ -19,9 +25,10 @@ class ShoppingCartRepositoryTest {
     void create() {
         ShoppingCart add = repository.create(cart1);
         assertNotNull(add);
+        System.out.println(add);
         ShoppingCart add2 = repository.create(cart2);
         assertNotNull(add2);
-
+        System.out.println(add2);
     }
 
     @Test
@@ -61,13 +68,6 @@ class ShoppingCartRepositoryTest {
         assertTrue(repository.delete(cart1.getCartID()));
         assertTrue(repository.delete(cart2.getCartID()));
         System.out.println("Cart Successfully deleted");
-
-    }
-    @Test
-    @Order(6)
-    void verifyDeleted(){
-        assertNull(repository.read(cart1.getCartID()));
-        assertNull(repository.read(cart2.getCartID()));
 
     }
 

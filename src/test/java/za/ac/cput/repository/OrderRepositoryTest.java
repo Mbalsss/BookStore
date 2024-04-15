@@ -1,25 +1,24 @@
 package za.ac.cput.repository;
-/*OrderRepositoryTest.java
-Author: Motlalepula Mbali Kgatlhane
-221684212
-Date: 18 March 2024
- */
+
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 //import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.domain.Order;
 import za.ac.cput.factory.OrderFactory;
-
-
 import java.util.Date;
-
 import static org.junit.jupiter.api.Assertions.*;
+
+/*OrderRepositoryTest.java
+Author: Motlalepula Mbali Kgatlhane (221684212)
+Date: 18 March 2024
+https://github.com/Mbalsss/BookStore+
+ */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class OrderRepositoryTest {
     private static IOrderRepository repository = OrderRepository.getRepository();
 
-    private final Order order1 = OrderFactory.createOrder("12345",new Date(), 1500,"Order Shipped");
+    private Order order1 = OrderFactory.createOrder("12345",new Date(), 1500,"Order Shipped");
 
     @Test
     @org.junit.jupiter.api.Order(4)
